@@ -3,7 +3,7 @@
 # computed by SQLFluff when running the tests. Please run
 # `python test/generate_parse_fixture_yml.py`  to generate them after adding or
 # altering SQL files.
-_hash: 5f028ef635cbb9c766ad3b82ae3dffb38d47f1bb204455cd04172af9cfd4d0cc
+_hash: f6ca75f9dd2ea90028ccc4b1f785b231419d264987075ef88abc04900f583e20
 file:
 - statement:
     insert_statement:
@@ -425,4 +425,289 @@ file:
       - end_bracket: )
     - keyword: DEFAULT
     - keyword: VALUES
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - star: '*'
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: c
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_b
+- statement_terminator: ;
+- statement:
+    insert_statement:
+    - keyword: INSERT
+    - keyword: INTO
+    - table_reference:
+        naked_identifier: t1
+    - bracketed:
+      - start_bracket: (
+      - column_reference:
+          naked_identifier: a
+      - comma: ','
+      - column_reference:
+          naked_identifier: b
+      - comma: ','
+      - column_reference:
+          naked_identifier: c
+      - end_bracket: )
+    - values_clause:
+        keyword: VALUES
+        bracketed:
+        - start_bracket: (
+        - expression:
+            numeric_literal: '1'
+        - comma: ','
+        - expression:
+            numeric_literal: '2'
+        - comma: ','
+        - expression:
+            numeric_literal: '3'
+        - end_bracket: )
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_b
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: c
 - statement_terminator: ;

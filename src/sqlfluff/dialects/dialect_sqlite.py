@@ -10,7 +10,9 @@ from sqlfluff.core.parser import (
     BaseSegment,
     Bracketed,
     CommentSegment,
+    Dedent,
     Delimited,
+    Indent,
     LiteralSegment,
     Matchable,
     NewlineSegment,
@@ -105,6 +107,7 @@ sqlite_dialect.replace(
         Sequence("GROUP", "BY"),
         Sequence("ORDER", "BY"),
         "WINDOW",
+        "RETURNING",
     ),
     FromClauseTerminatorGrammar=OneOf(
         "WHERE",
@@ -193,6 +196,86 @@ sqlite_dialect.replace(
         Ref("BooleanLiteralGrammar"),
     ),
 )
+
+
+class AsAliasExpressionSegment(BaseSegment):
+    """A reference to an object with an `AS` clause.
+
+    This is used in `InsertStatementSegment` in Postgres
+    since the `AS` is not optional in this context.
+
+    N.B. We keep as a separate segment since the `alias_expression`
+    type is required for rules to interpret the alias.
+    """
+
+    type = "alias_expression"
+    match_grammar = Sequence(
+        Indent,
+        "AS",
+        Ref("SingleIdentifierGrammar"),
+        Dedent,
+    )
+
+
+class UpdateStatementSegment(BaseSegment):
+    """An `Update` statement.
+
+    UPDATE <table name> SET <set clause list> [ WHERE <search condition> ]
+    """
+
+    type = "update_statement"
+    match_grammar: Matchable = Sequence(
+        "UPDATE",
+        Ref("TableReferenceSegment"),
+        # SET is not a reserved word in all dialects (e.g. RedShift)
+        # So specifically exclude as an allowed implicit alias to avoid parsing errors
+        Ref("AliasExpressionSegment", exclude=Ref.keyword("SET"), optional=True),
+        Ref("SetClauseListSegment"),
+        Ref("FromClauseSegment", optional=True),
+        Ref("WhereClauseSegment", optional=True),
+        Sequence(
+            "RETURNING",
+            OneOf(
+                Ref("StarSegment"),
+                Delimited(
+                    Sequence(
+                        Ref("ExpressionSegment"),
+                        Ref("AliasExpressionSegment", optional=True),
+                    ),
+                ),
+            ),
+            optional=True,
+        ),
+    )
+
+
+class DeleteStatementSegment(BaseSegment):
+    """A `DELETE` statement.
+
+    DELETE FROM <table name> [ WHERE <search condition> ]
+    """
+
+    type = "delete_statement"
+    # match grammar. This one makes sense in the context of knowing that it's
+    # definitely a statement, we just don't know what type yet.
+    match_grammar: Matchable = Sequence(
+        "DELETE",
+        Ref("FromClauseSegment"),
+        Ref("WhereClauseSegment", optional=True),
+        Sequence(
+            "RETURNING",
+            OneOf(
+                Ref("StarSegment"),
+                Delimited(
+                    Sequence(
+                        Ref("ExpressionSegment"),
+                        Ref("AliasExpressionSegment", optional=True),
+                    ),
+                ),
+            ),
+            optional=True,
+        ),
+    )
 
 
 class SetOperatorSegment(BaseSegment):
@@ -318,6 +401,19 @@ class InsertStatementSegment(BaseSegment):
             Ref("ValuesClauseSegment"),
             OptionallyBracketed(Ref("SelectableGrammar")),
             Ref("DefaultValuesGrammar"),
+        ),
+        Sequence(
+            "RETURNING",
+            OneOf(
+                Ref("StarSegment"),
+                Delimited(
+                    Sequence(
+                        Ref("ExpressionSegment"),
+                        Ref("AliasExpressionSegment", optional=True),
+                    ),
+                ),
+            ),
+            optional=True,
         ),
     )
 

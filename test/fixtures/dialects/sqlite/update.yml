@@ -1,0 +1,317 @@
+# YML test files are auto-generated from SQL files and should not be edited by
+# hand. To help enforce this, the "hash" field in the file must match a hash
+# computed by SQLFluff when running the tests. Please run
+# `python test/generate_parse_fixture_yml.py`  to generate them after adding or
+# altering SQL files.
+_hash: cfc4e708d70625791b72ce0bb1081e9871055154f054d5f40120b2a8bd2baa53
+file:
+- statement:
+    update_statement:
+      keyword: UPDATE
+      table_reference:
+        naked_identifier: t1
+      set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+      where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - star: '*'
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: c
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_b
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: c
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: b
+    - comma: ','
+    - expression:
+        column_reference:
+          naked_identifier: c
+- statement_terminator: ;
+- statement:
+    update_statement:
+    - keyword: UPDATE
+    - table_reference:
+        naked_identifier: t1
+    - set_clause_list:
+      - keyword: SET
+      - set_clause:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '4'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: b
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '5'
+      - comma: ','
+      - set_clause:
+          column_reference:
+            naked_identifier: c
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '6'
+    - where_clause:
+        keyword: WHERE
+        expression:
+          column_reference:
+            naked_identifier: a
+          comparison_operator:
+            raw_comparison_operator: '='
+          numeric_literal: '1'
+    - keyword: RETURNING
+    - expression:
+        column_reference:
+          naked_identifier: a
+    - alias_expression:
+        keyword: AS
+        naked_identifier: field_a
+- statement_terminator: ;

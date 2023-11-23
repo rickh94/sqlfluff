@@ -23,3 +23,11 @@ SELECT * FROM (SELECT
 INSERT INTO t1 DEFAULT VALUES;
 
 INSERT INTO t1 (a, b, c) DEFAULT VALUES;
+
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING *;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a, b, c;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a AS field_a;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a AS field_a, b;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a AS field_a, b AS field_b;
+INSERT INTO t1 (a, b, c) VALUES (1, 2, 3) RETURNING a AS field_a, b AS field_b, c;
